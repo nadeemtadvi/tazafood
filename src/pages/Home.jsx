@@ -1,12 +1,22 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/Header";
+import FoodItem from "../components/FoodItem";
+import Cart from "../components/Cart";
+import CategoryMenu from "../components/CategoryMenu";
+import SuccessOrder from "./SuccessOrder";
 
 const Home = () => {
   return (
-    <div className='bg-zinc-900 h-full w-full'>
-      
-      <h1 className='bg-zinc-800 text-white font-semibold'>Appp foodie</h1>
-    </div>
-  )
-}
+    <>
+      <Header />
+      <div className="max-w-screen-2xl mx-auto p-4">
+        <CategoryMenu />
+        <FoodItem />
+        <Cart />
+        <SuccessOrder/>
+      </div>
+    </>
+  );
+};
 
-export default Home
+export default Home;
