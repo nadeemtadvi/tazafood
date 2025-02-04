@@ -1,22 +1,35 @@
 import React from "react";
+import { AiFillStar } from "react-icons/ai";
 
-const FoodCart = () => {
+const FoodCart = ({ id, img, price, rating, name, desc, category }) => {
   return (
     <div>
       <div className="w-72 rounded overflow-hidden shadow-lg">
-        <img className="w-72 h-64 object-cover" src='https://images.pexels.com/photos/6454809/pexels-photo-6454809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt="{name}" />
+        <img className="w-72 h-64 object-fit" src={img} alt="{name}" />
         <div className="p-4">
-          <div className="font-bold text-xl mb-2">Chesse</div>
-          <p className="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            veritatis?
-          </p>
-          <div className="text-gray-900 font-bold text-xl mb-2 text-end">$234</div>
-          <button  className="inline-block py-1.5 px-2.5 text-white bg-green-500 hover:bg-green-600 rounded-sm text-sm">Add to cart</button>
-          <button  className="inline-block py-1.5 px-2.5 text-white bg-green-500 hover:bg-green-600 rounded-sm text-sm ml-2 ">+ wishlist</button>
-          <button  className="inline-block py-1.5 px-2.5 text-white bg-green-500 hover:bg-green-600 rounded-sm text-sm ml-2 ">Buy</button>
+          <h2>{name}</h2>
+          <p className="text-gray-700 text-base">{desc.slice(0, 50)}...</p>
+          <div className="flex justify-between items-center">
+            <span className="flex justify-center items-center">
+              <AiFillStar className="mr-1 text-yellow-400" /> {rating}
+            </span>
+            <p className="text-gray-900 font-bold text-xl mb-2 text-end">
+              ${price}
+            </p>
+          </div>
+          <div className="flex justify-between items-center">
+
+          <button className="inline-block py-1.5 w-full  text-white bg-green-500 hover:bg-green-600 rounded-sm text-sm">
+            Add to cart
+          </button>
+          <button className="inline-block py-1.5 mx-2 w-full text-white bg-green-500 hover:bg-green-600 rounded-sm text-sm ">
+            + wishlist
+          </button>
+          <button className="inline-block py-1.5 w-full text-white bg-green-500 hover:bg-green-600 rounded-sm text-sm ">
+            Buy
+          </button>
+          </div>
         </div>
-         
       </div>
     </div>
   );

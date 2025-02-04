@@ -6,6 +6,7 @@ import CategoryMenu from "../components/CategoryMenu";
 import SuccessOrder from "./SuccessOrder";
 
 const Home = () => {
+  
   return (
     <>
       <Header />
