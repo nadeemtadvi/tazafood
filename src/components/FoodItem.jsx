@@ -4,7 +4,7 @@ import FoodCart from "./FoodCart";
 
 const FoodItem = () => {
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4  mx-6 my-10">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-8 mx-6 my-10">
       {FoodData.map((item)=>(
         
         <FoodCart

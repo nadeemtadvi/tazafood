@@ -4,16 +4,17 @@ import Error from "./components/Error";
 import Home from "./pages/Home";
 import SuccessOrder from "./pages/SuccessOrder";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route path="/success" element={<SuccessOrder />} />
-            <Route path="/*" element={<Error />} />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/success" element={<SuccessOrder />} />
+          <Route path="/checkout" element={<Cart />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </>

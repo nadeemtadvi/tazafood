@@ -1,23 +1,11 @@
 import React from "react";
 import ItemCart from "./ItemCart";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Delicious Burger",
-      price: 8.99,
-      quantity: 1,
-      img: "https://example.com/burger.jpg", 
-    },
-    {
-      id: 2,
-      name: "Tasty Pizza",
-      price: 12.99,
-      quantity: 2,
-      img: "https://example.com/pizza.jpg", 
-    },
-  ];
+  const cartItems = useSelector((state)=>state.cart.cart)
+  console.log(cartItems);
+  
   return (
     <div className="mx-4 my-10 p-4 ">
       <h1 className="text-2xl font-bold mb-4 ">My Order</h1>
@@ -25,23 +13,25 @@ const Cart = () => {
         {cartItems.map((item) => (
           <ItemCart
             key={item.id}
+            id={item.id}
             img={item.img}
             name={item.name}
             price={item.price}
-            quantity={item.quantity}
+            qty={item.qty}
           />
         ))}
       </div>
-      <div className="flex justify-between items-center border-t p-4">
+      <div className="grid grid-cols-[50%_auto_auto] items-center border-t p-4">
         <div className="text-lg">
-          <span className="font-bold">Items:</span> 1
+          <span className="font-bold inline-block ml-24">Items:</span> 1
         </div>
-        <div className="text-lg">
+        <div className="text-lg text-end">
           <span className="font-bold">Total Amount:</span>
         </div>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-md">
+        <div className="text-end">
+        <button className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md">
           Checkout
-        </button>
+        </button></div>
       </div>
     </div>
   );

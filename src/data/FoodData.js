@@ -8,7 +8,7 @@ const FoodData = [
     category: "Lunch",
     rating: 4.5,
   },
-  {
+  { 
     id: 2,
     img: "https://w7.pngwing.com/pngs/339/55/png-transparent-pizza-margherita-italian-cuisine-hot-dog-pizza-cheese-pizza-thumbnail.png",
     name: "Margherita Pizza",
