@@ -1,6 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../redux/Slices/CartSlice";
+import {
+  removeFromCart,
+  incrementQty,
+  decrementQty,
+} from "../redux/Slices/CartSlice";
+import toast from "react-hot-toast";
 
 const ItemCart = ({ img, name, price, qty, id }) => {
   const dispatch = useDispatch();
@@ -18,16 +23,29 @@ const ItemCart = ({ img, name, price, qty, id }) => {
         </div>
       </div>
       <div className="flex items-center ">
-        <button className="bg-gray-300 text-gray-700 px-2 py-1 rounded-md">
+        <button
+          onClick={() => (qty > 1 ? dispatch(decrementQty({ id })) : (qty = 0))}
+          className="bg-gray-300 text-gray-700 px-2 py-1 rounded-md"
+        >
           -
         </button>
         <span className="mx-2">{qty}</span>
-        <button className="bg-gray-300 text-gray-700 px-2 py-1 rounded-md">
+        <button
+          onClick={() =>
+            qty >= 1 ? dispatch(incrementQty({ id })) : (qty = 0)
+          }
+          className="bg-gray-300 text-gray-700 px-2 py-1 rounded-md"
+        >
           +
         </button>
       </div>
       <button
-        onClick={() => dispatch(removeFromCart({ img, name, price, qty, id }))}
+        onClick={() => {
+          dispatch(removeFromCart({ img, name, price, qty, id }));
+          toast(`${name} removed`, {
+            icon: "👋",
+          });
+        }}
         className="bg-red-500 text-white px-3 py-1 rounded-md ml-4"
       >
         Delete
