@@ -3,11 +3,13 @@ import { PropagateLoader } from "react-spinners";
 
 const SuccessOrder = () => {
   const [loading, setloading] = useState(true);
+  
   useEffect(() => {
     setTimeout(() => {
       setloading(false);
     }, 3000);
   }, []);
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       {loading ? (

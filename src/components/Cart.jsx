@@ -1,11 +1,14 @@
 import React from "react";
 import ItemCart from "./ItemCart";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 const Cart = ({setShowcart}) => {
   const cartItems = useSelector((state)=>state.cart.cart)
   const totalItems = cartItems.reduce((totalQty , item)=> totalQty + item.qty ,0)
   const totalPrice = cartItems.reduce((total , item)=> total + item.qty * item.price ,0)
+   const navigate = useNavigate();
   
   return (
     <>
@@ -32,7 +35,7 @@ const Cart = ({setShowcart}) => {
           <span className="font-bold">Total Amount: ${totalPrice}</span>
         </div>
         <div className="text-end">
-        <button className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md">
+        <button onClick={() => navigate("/success")} className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md">
           Checkout
         </button></div>
       </div>
